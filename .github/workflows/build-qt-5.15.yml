@@ -47,7 +47,7 @@ jobs:
           name: OpenSSL ${{ env.qt_version }} x64
           path: |
             openssl-win64/bin/*
-          compression-level: 0
+          compression-level: 9
 
   Build_x86:
     runs-on: windows-2019
@@ -79,4 +79,4 @@ jobs:
           name: OpenSSL ${{ env.qt_version }} x86
           path: |
             openssl-win32/bin/*
-          compression-level: 0
+          compression-level: 9
