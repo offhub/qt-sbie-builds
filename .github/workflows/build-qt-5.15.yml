@@ -23,6 +23,8 @@ jobs:
         with:
           name: OpenSSL ${{ env.qt_version }} x64
           path: |
+            openssl-win64/*
+            bin/*
             openssl-win64/bin/*
           compression-level: 0
 
@@ -64,7 +66,9 @@ jobs:
         with:
           name: OpenSSL ${{ env.qt_version }} x86
           path: |
-            openssl-win32/bin/*
+            openssl-win64/*
+            bin/*
+            openssl-win64/bin/*
           compression-level: 0
 
       - name: Install Qt jom
