@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Qt ${{ env.qt_version }} sources
-        run: .\download_sources.cmd repack
+        run: .\download_sources.cmd repack ${{ env.qt_version }} ${{ env.openssl_version }}
 
       - name: Upload patched Qt ${{ env.qt_version }} sources
         uses: actions/upload-artifact@v4
@@ -31,7 +31,7 @@ jobs:
         run: .\install_jom.cmd
 
       - name: Build Qt ${{ env.qt_version }} x64
-        run: .\build_sources.cmd x64
+        run: .\build_sources.cmd x64 ${{ env.qt_version }}
 
       - name: Upload built Qt ${{ env.qt_version }}
         uses: actions/upload-artifact@v4
@@ -57,13 +57,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Qt ${{ env.qt_version }} sources
-        run: .\download_sources.cmd no_repack
+        run: .\download_sources.cmd no_repack ${{ env.qt_version }} ${{ env.openssl_version }}
 
       - name: Install Qt jom
         run: .\install_jom.cmd
 
       - name: Build Qt ${{ env.qt_version }} x86
-        run: .\build_sources.cmd Win32
+        run: .\build_sources.cmd Win32 ${{ env.qt_version }}
 
       - name: Upload built Qt
         uses: actions/upload-artifact@v4
