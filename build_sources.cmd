@@ -1,3 +1,4 @@
+echo %*
 set "qt_version=%2"
 
 if %1 == x64 (
