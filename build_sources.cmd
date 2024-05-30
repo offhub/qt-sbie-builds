@@ -20,7 +20,7 @@ if %1 == Win32 (
     set build_arch=x86
     set "PATH=%~dp0src\qtbase\bin;%~dp0src\gnuwin32\bin;%~dp0jom;%PATH%"
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
-pushd %~dp0src\openssl\
+    pushd %~dp0src\openssl\
     perl Configure shared no-asm --prefix=%~dp0openssl-win32 VC-WIN32
     nmake
     nmake install
