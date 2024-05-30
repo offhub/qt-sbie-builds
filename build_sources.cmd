@@ -1,4 +1,4 @@
-set "qt_version=5.15.14"
+set "qt_version=%2"
 
 if %1 == x64 (
     set build_arch=x64
