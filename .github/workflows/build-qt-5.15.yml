@@ -30,11 +30,11 @@ jobs:
       - name: Upload built OpenSSL ${{ env.openssl_version }}
         uses: actions/upload-artifact@v4
         with:
-          name: Qt ${{ env.qt_version }} x64
+          name: OpenSSL ${{ env.qt_version }} x64
           path: |
-            openssl-win64/bin/*.dll
-            openssl-win64/bin/*.exe
-            openssl-win64/bin/*.pdb
+            **/openssl-win64/bin/*.dll
+            **/openssl-win64/bin/*.exe
+            **/openssl-win64/bin/*.pdb
           compression-level: 0
 
       - name: Install Qt jom
@@ -64,11 +64,11 @@ jobs:
       - name: Upload built OpenSSL ${{ env.openssl_version }}
         uses: actions/upload-artifact@v4
         with:
-          name: Qt ${{ env.qt_version }} x86
+          name: OpenSSL ${{ env.qt_version }} x86
           path: |
-            openssl-win32/bin/*.dll
-            openssl-win32/bin/*.exe
-            openssl-win32/bin/*.pdb
+            **/openssl-win32/bin/*.dll
+            **/openssl-win32/bin/*.exe
+            **/openssl-win32/bin/*.pdb
           compression-level: 0
 
       - name: Install Qt jom
