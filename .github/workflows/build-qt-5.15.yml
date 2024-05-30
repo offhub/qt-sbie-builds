@@ -18,6 +18,14 @@ jobs:
       - name: Download Qt ${{ env.qt_version }} sources
         run: .\download_sources.cmd repack
 
+      - name: Upload built OpenSSL ${{ env.openssl_version }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpenSSL ${{ env.qt_version }} x64
+          path: |
+            openssl-win64/bin/*
+          compression-level: 0
+
       - name: Upload patched Qt ${{ env.qt_version }} sources
         uses: actions/upload-artifact@v4
         with:
@@ -26,16 +34,6 @@ jobs:
             src_archive/*
           compression-level: 9
           retention-days: 5
-
-      - name: Upload built OpenSSL ${{ env.openssl_version }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: OpenSSL ${{ env.qt_version }} x64
-          path: |
-            **/openssl-win64/bin/*.dll
-            **/openssl-win64/bin/*.exe
-            **/openssl-win64/bin/*.pdb
-          compression-level: 0
 
       - name: Install Qt jom
         run: .\install_jom.cmd
@@ -66,9 +64,7 @@ jobs:
         with:
           name: OpenSSL ${{ env.qt_version }} x86
           path: |
-            **/openssl-win32/bin/*.dll
-            **/openssl-win32/bin/*.exe
-            **/openssl-win32/bin/*.pdb
+            openssl-win32/bin/*
           compression-level: 0
 
       - name: Install Qt jom
