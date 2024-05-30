@@ -1,3 +1,4 @@
+echo %*
 set "qt_version=%2"
 set "qt_source_url=https://download.qt.io/archive/qt/5.15/%qt_version%/single/qt-everywhere-opensource-src-%qt_version%.zip"
 set "qt_patch_url=https://download.qt.io/archive/qt/5.15"
