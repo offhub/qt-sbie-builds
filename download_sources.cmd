@@ -52,6 +52,7 @@ curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/0002-CVE-2023-51714-
 curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2024-25580-qtbase-5.15.diff"
 curl -LsSO --output-dir "%bDir%\src\qtnetworkauth" "%qt_patch_url%/CVE-2024-36048-qtnetworkauth-5.15.diff"
 :verMin17
+curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2024-39936-qtbase-5.15.patch"
 :verMin18
 :verMin19
 
