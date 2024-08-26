@@ -78,7 +78,7 @@ for %%i in (%qtsvg_patches%) do (
 popd
 
 pushd "%bDir%\src\qtbase"
-set qtbase_patches="CVE-2023-32762-qtbase-5.15.diff" "CVE-2023-33285-qtbase-5.15.diff" "CVE-2023-32763-qtbase-5.15.diff" "CVE-2023-34410-qtbase-5.15.diff" "CVE-2023-37369-qtbase-5.15.diff" "CVE-2023-38197-qtbase-5.15.diff" "CVE-2023-43114-5.15.patch" "0001-CVE-2023-51714-qtbase-5.15.diff" "0002-CVE-2023-51714-qtbase-5.15.diff" "CVE-2024-25580-qtbase-5.15.diff"
+set qtbase_patches="CVE-2023-32762-qtbase-5.15.diff" "CVE-2023-33285-qtbase-5.15.diff" "CVE-2023-32763-qtbase-5.15.diff" "CVE-2023-34410-qtbase-5.15.diff" "CVE-2023-37369-qtbase-5.15.diff" "CVE-2023-38197-qtbase-5.15.diff" "CVE-2023-43114-5.15.patch" "0001-CVE-2023-51714-qtbase-5.15.diff" "0002-CVE-2023-51714-qtbase-5.15.diff" "CVE-2024-25580-qtbase-5.15.diff" "CVE-2024-39936-qtbase-5.15.patch"
 for %%i in (%qtbase_patches%) do (
     if exist "%%i" (
         echo Applying patch "%%i"
