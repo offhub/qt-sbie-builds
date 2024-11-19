@@ -25,6 +25,7 @@ if "%1" == "Win32" (
     call "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
     pushd "%bDir%\src\openssl"
     perl Configure shared no-asm --prefix="%bDir%\openssl-win32" VC-WIN32
+    dir C:\nmake.exe /s /p
     nmake
     nmake install
     popd
