@@ -1,7 +1,7 @@
 echo %*
 set "qt_version=%2"
-set "qt_source_url=https://download.qt.io/archive/qt/5.15/%qt_version%/single/qt-everywhere-opensource-src-%qt_version%.zip"
-set "qt_patch_url=https://download.qt.io/archive/qt/5.15"
+set "qt_source_url=https://download.qt.io/archive/qt/6.8/%qt_version%/single/qt-everywhere-src-%qt_version%.zip"
+set "qt_patch_url=https://download.qt.io/archive/qt/6.8"
 set "openssl_version=%3"
 set "openssl_source_url=https://github.com/openssl/openssl/releases/download/openssl-%openssl_version%/openssl-%openssl_version%.tar.gz"
 set "bDir=%~dp0"
@@ -17,44 +17,31 @@ if "%EOL%" == "LF" (
 
 if exist "%bDir%\qt-everywhere-src-%qt_version%\configure.bat" goto done
 
-REM Downloading Qt 5.15 source code...
+REM Downloading Qt 6.8 source code...
 echo Downloading Qt %qt_version% source code...
 curl -LsSO --output-dir "%bDir%" "%qt_source_url%"
-"C:\Program Files\7-Zip\7z.exe" x -aoa -o"%bDir%" "%bDir%\qt-everywhere-opensource-src-%qt_version%.zip"
+"C:\Program Files\7-Zip\7z.exe" x -aoa -o"%bDir%" "%bDir%\qt-everywhere-src-%qt_version%.zip"
 move "%bDir%\qt-everywhere-src-%qt_version%" "%bDir%\src"
 
-REM Downloading Qt 5.15 security patches...
+REM Downloading Qt 6.8 security patches...
 echo Downloading Qt %qt_version% security patches...
 
-if "%qt_version%" == "5.15.13" echo Qt version is %qt_version% & goto verMin13
-if "%qt_version%" == "5.15.14" echo Qt version is %qt_version% & goto verMin14
-if "%qt_version%" == "5.15.15" echo Qt version is %qt_version% & goto verMin15
-if "%qt_version%" == "5.15.16" echo Qt version is %qt_version% & goto verMin16
-if "%qt_version%" == "5.15.17" echo Qt version is %qt_version% & goto verMin17
-if "%qt_version%" == "5.15.18" echo Qt version is %qt_version% & goto verMin18
-if "%qt_version%" == "5.15.19" echo Qt version is %qt_version% & goto verMin19
+if "%qt_version%" == "6.8.0" echo Qt version is %qt_version% & goto verMin0
+if "%qt_version%" == "6.8.1" echo Qt version is %qt_version% & goto verMin1
+if "%qt_version%" == "6.8.2" echo Qt version is %qt_version% & goto verMin2
+if "%qt_version%" == "6.8.3" echo Qt version is %qt_version% & goto verMin3
+if "%qt_version%" == "6.8.4" echo Qt version is %qt_version% & goto verMin4
+if "%qt_version%" == "6.8.5" echo Qt version is %qt_version% & goto verMin5
+if "%qt_version%" == "6.8.6" echo Qt version is %qt_version% & goto verMin6
 
-:verMin13
-curl -LsSO --output-dir "%bDir%\src\qtsvg" "%qt_patch_url%/CVE-2023-32573-qtsvg-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2023-32762-qtbase-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2023-33285-qtbase-5.15.diff"
-:verMin14
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2023-32763-qtbase-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2023-34410-qtbase-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2023-37369-qtbase-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2023-38197-qtbase-5.15.diff"
-:verMin15
-curl -LsSO --output-dir "%bDir%\src\qtimageformats" "%qt_patch_url%/CVE-2023-4863-5.15.patch"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2023-43114-5.15.patch"
-:verMin16
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/0001-CVE-2023-51714-qtbase-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/0002-CVE-2023-51714-qtbase-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2024-25580-qtbase-5.15.diff"
-curl -LsSO --output-dir "%bDir%\src\qtnetworkauth" "%qt_patch_url%/CVE-2024-36048-qtnetworkauth-5.15.diff"
-:verMin17
-curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2024-39936-qtbase-5.15.patch"
-:verMin18
-:verMin19
+:verMin0
+REM curl -LsSO --output-dir "%bDir%\src\qtsvg" "%qt_patch_url%/CVE-2023-32573-qtsvg-5.15.diff"
+:verMin1
+:verMin2
+:verMin3
+:verMin4
+:verMin5
+:verMin6
 
 
 REM Install GNU Patch tool (from Chocolatey)...
@@ -64,57 +51,57 @@ REM Install Dos2Unix / Unix2Dos - Text file format converters
 choco install dos2unix -y
 
 REM Patch Qt sources...
-pushd "%bDir%\src\qtsvg"
-set qtsvg_patches="CVE-2023-32573-qtsvg-5.15.diff"
-for %%i in (%qtsvg_patches%) do (
-    if exist "%%i" (
-        echo Applying patch "%%i"
-        %EOLconverter% --verbose "%%i"
-        patch -p1 --verbose -u -i "%%i"
-    ) else (
-        echo File "%%i" does not exist. Skipping...
-    )
-)
-popd
+REM pushd "%bDir%\src\qtsvg"
+REM set qtsvg_patches="CVE-2023-32573-qtsvg-5.15.diff"
+REM for %%i in (%qtsvg_patches%) do (
+    REM if exist "%%i" (
+        REM echo Applying patch "%%i"
+        REM %EOLconverter% --verbose "%%i"
+        REM patch -p1 --verbose -u -i "%%i"
+    REM ) else (
+        REM echo File "%%i" does not exist. Skipping...
+    REM )
+REM )
+REM popd
 
-pushd "%bDir%\src\qtbase"
-set qtbase_patches="CVE-2023-32762-qtbase-5.15.diff" "CVE-2023-33285-qtbase-5.15.diff" "CVE-2023-32763-qtbase-5.15.diff" "CVE-2023-34410-qtbase-5.15.diff" "CVE-2023-37369-qtbase-5.15.diff" "CVE-2023-38197-qtbase-5.15.diff" "CVE-2023-43114-5.15.patch" "0001-CVE-2023-51714-qtbase-5.15.diff" "0002-CVE-2023-51714-qtbase-5.15.diff" "CVE-2024-25580-qtbase-5.15.diff" "CVE-2024-39936-qtbase-5.15.patch"
-for %%i in (%qtbase_patches%) do (
-    if exist "%%i" (
-        echo Applying patch "%%i"
-        %EOLconverter% --verbose "%%i"
-        patch -p1 --verbose -u -i "%%i"
-    ) else (
-        echo File "%%i" does not exist. Skipping...
-    )
-)
-popd
+REM pushd "%bDir%\src\qtbase"
+REM set qtbase_patches="CVE-2023-32762-qtbase-5.15.diff" "CVE-2023-33285-qtbase-5.15.diff" "CVE-2023-32763-qtbase-5.15.diff" "CVE-2023-34410-qtbase-5.15.diff" "CVE-2023-37369-qtbase-5.15.diff" "CVE-2023-38197-qtbase-5.15.diff" "CVE-2023-43114-5.15.patch" "0001-CVE-2023-51714-qtbase-5.15.diff" "0002-CVE-2023-51714-qtbase-5.15.diff" "CVE-2024-25580-qtbase-5.15.diff" "CVE-2024-39936-qtbase-5.15.patch"
+REM for %%i in (%qtbase_patches%) do (
+    REM if exist "%%i" (
+        REM echo Applying patch "%%i"
+        REM %EOLconverter% --verbose "%%i"
+        REM patch -p1 --verbose -u -i "%%i"
+    REM ) else (
+        REM echo File "%%i" does not exist. Skipping...
+    REM )
+REM )
+REM popd
 
-pushd "%bDir%\src\qtimageformats"
-set qtimageformats_patches="CVE-2023-4863-5.15.patch"
-for %%i in (%qtimageformats_patches%) do (
-    if exist "%%i" (
-        echo Applying patch "%%i"
-        %EOLconverter% --verbose "%%i"
-        patch -p1 --verbose -u -i "%%i"
-    ) else (
-        echo File "%%i" does not exist. Skipping...
-    )
-)
-popd
+REM pushd "%bDir%\src\qtimageformats"
+REM set qtimageformats_patches="CVE-2023-4863-5.15.patch"
+REM for %%i in (%qtimageformats_patches%) do (
+    REM if exist "%%i" (
+        REM echo Applying patch "%%i"
+        REM %EOLconverter% --verbose "%%i"
+        REM patch -p1 --verbose -u -i "%%i"
+    REM ) else (
+        REM echo File "%%i" does not exist. Skipping...
+    REM )
+REM )
+REM popd
 
-pushd "%bDir%\src\qtnetworkauth"
-set qtnetworkauth_patches="CVE-2024-36048-qtnetworkauth-5.15.diff"
-for %%i in (%qtnetworkauth_patches%) do (
-    if exist "%%i" (
-        echo Applying patch "%%i"
-        %EOLconverter% --verbose "%%i"
-        patch -p1 --verbose -u -i "%%i"
-    ) else (
-        echo File "%%i" does not exist. Skipping...
-    )
-)
-popd
+REM pushd "%bDir%\src\qtnetworkauth"
+REM set qtnetworkauth_patches="CVE-2024-36048-qtnetworkauth-5.15.diff"
+REM for %%i in (%qtnetworkauth_patches%) do (
+    REM if exist "%%i" (
+        REM echo Applying patch "%%i"
+        REM %EOLconverter% --verbose "%%i"
+        REM patch -p1 --verbose -u -i "%%i"
+    REM ) else (
+        REM echo File "%%i" does not exist. Skipping...
+    REM )
+REM )
+REM popd
 
 REM Download openssl sources...
 curl -LsSO --output-dir "%bDir%" "%openssl_source_url%"
@@ -123,7 +110,7 @@ move "%bDir%\openssl-%openssl_version%" "%bDir%\src\openssl"
 
 if "%1" == "repack" (
     REM Pack patched Qt sources...
-    mkdir "%bDir%\src_archive" && tar -cf "src_archive/qt-everywhere-opensource-src-%qt_version%-patched-openssl.tar" "%bDir%\src"
+    mkdir "%bDir%\src_archive" && tar -cf "src_archive/qt-everywhere-src-%qt_version%-patched-openssl.tar" "%bDir%\src"
 )
 
 :done
