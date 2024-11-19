@@ -1,6 +1,10 @@
 echo %*
 set "qt_version=%2"
-if "%qt_version:~4,1%" == "." (set "qt_version_nomin=%qt_version:~0,4%") else ("qt_version_nomin=%qt_version:~0,5%")
+if "%qt_version:~4,1%" == "." (
+    set "qt_version_nomin=%qt_version:~0,4%"
+) else (
+    set "qt_version_nomin=%qt_version:~0,5%"
+)
 set "qt_source_url=https://download.qt.io/archive/qt/%qt_version_nomin%/%qt_version%/single/qt-everywhere-src-%qt_version%.zip"
 set "qt_patch_url=https://download.qt.io/archive/qt/%qt_version_nomin%"
 set "openssl_version=%3"
