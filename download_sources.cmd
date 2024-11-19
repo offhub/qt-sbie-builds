@@ -27,7 +27,7 @@ REM Downloading Qt 6.8 source code...
 echo Downloading Qt %qt_version% source code...
 curl -LsSO --output-dir "%bDir%" "%qt_source_url%"
 dir
-"C:\Program Files\7-Zip\7z.exe" x -aoa -o"%bDir%" "%bDir%\qt-everywhere-opensource-src-%qt_version%.zip"
+"C:\Program Files\7-Zip\7z.exe" x -aoa -o"%bDir%" "%bDir%\qt-everywhere-src-%qt_version%.zip"
 dir
 ren "%bDir%\qt-everywhere-src-%qt_version%" "qt-everywhere-opensource-src-%qt_version%"
 move "%bDir%\qt-everywhere-opensource-src-%qt_version%" "%bDir%\src"
