@@ -1,3 +1,4 @@
+@echo on
 echo %*
 set "qt_version=%2"
 if "%qt_version:~4,1%" == "." (
