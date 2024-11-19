@@ -5,7 +5,7 @@ if "%qt_version:~4,1%" == "." (
 ) else (
     set "qt_version_nomin=%qt_version:~0,3%"
 )
-set "qt_source_url=https://download.qt.io/archive/qt/%qt_version_nomin%/single/qt-everywhere-src-%qt_version%.zip"
+set "qt_source_url=https://download.qt.io/archive/qt/%qt_version_nomin%/%qt_version%/single/qt-everywhere-src-%qt_version%.zip"
 set "qt_patch_url=https://download.qt.io/archive/qt/%qt_version_nomin%"
 set "openssl_version=%3"
 set "openssl_source_url=https://github.com/openssl/openssl/releases/download/openssl-%openssl_version%/openssl-%openssl_version%.tar.gz"
