@@ -9,7 +9,7 @@ if "%1" == "x64" (
 dir "%bDir%\src\qtbase\bin" || echo fail 1
 dir "%bDir%\src\gnuwin32\bin" || echo fail 2
 dir "%bDir%\jom" || echo fail 3
-dir "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\" || echo fail 4
+dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\" || echo fail 4
 dir "%bDir%\src\openssl" || echo fail 5
 dir "%bDir%\src" || echo fail 6
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
@@ -31,7 +31,7 @@ if "%1" == "Win32" (
 dir "%bDir%\src\qtbase\bin" || echo fail 1
 dir "%bDir%\src\gnuwin32\bin" || echo fail 2
 dir "%bDir%\jom" || echo fail 3
-dir "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\" || echo fail 4
+dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\" || echo fail 4
 dir "%bDir%\src\openssl" || echo fail 5
 dir "%bDir%\src" || echo fail 6
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
