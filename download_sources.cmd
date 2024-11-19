@@ -3,7 +3,7 @@ set "qt_version=%2"
 if "%qt_version:~4,1%" == "." (
     set "qt_version_nomin=%qt_version:~0,4%"
 ) else (
-    set "qt_version_nomin=%qt_version:~0,5%"
+    set "qt_version_nomin=%qt_version:~0,3%"
 )
 set "qt_source_url=https://download.qt.io/archive/qt/%qt_version_nomin%/single/qt-everywhere-src-%qt_version%.zip"
 set "qt_patch_url=https://download.qt.io/archive/qt/%qt_version_nomin%"
