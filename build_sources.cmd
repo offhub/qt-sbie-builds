@@ -25,8 +25,10 @@ if "%1" == "x64" (
     popd
     pushd "%bDir%\src"
     call configure.bat -release -opensource -confirm-license -prefix "%bDir%\bin\%qt_version%\msvc2019_64" -platform win32-msvc -openssl-linked -nomake tests -nomake examples -skip qtdoc -skip qtwebengine -- -D OPENSSL_ROOT_DIR="%bDir%\openssl-win64"
-    jom
-    if %ERRORLEVEL% == 0 jom install
+    rem jom
+    rem if %ERRORLEVEL% == 0 jom install
+    cmake --build . --parallel
+    if %ERRORLEVEL% == 0 cmake --install .
     if %ERRORLEVEL% == 0 mkdir "%bDir%\archive" && "C:\Program Files\7-Zip\7z.exe" a -t7z -mx=9 -mfb=273 -ms -md=31 -myx=9 -mtm=- -mmt -mmtf -md=1536m -mmf=bt3 -mmc=10000 -mpb=0 -mlc=0 "%bDir%\archive\qt-everywhere-%qt_version%-Windows_10-MSVC2019-x86_64.7z" "%bDir%\bin\%qt_version%"
 )
 
@@ -41,8 +43,10 @@ if "%1" == "Win32" (
     popd
     pushd "%bDir%\src"
     call configure.bat -release -opensource -confirm-license -prefix "%bDir%\bin\%qt_version%\msvc2019" -platform win32-msvc -openssl-linked -nomake tests -nomake examples -skip qtdoc -skip qtwebengine -- -D OPENSSL_ROOT_DIR="%bDir%\openssl-win32"
-    jom
-    if %ERRORLEVEL% == 0 jom install
+    rem jom
+    rem if %ERRORLEVEL% == 0 jom install
+    cmake --build . --parallel
+    if %ERRORLEVEL% == 0 cmake --install .
     if %ERRORLEVEL% == 0 mkdir "%bDir%\archive" && "C:\Program Files\7-Zip\7z.exe" a -t7z -mx=9 -mfb=273 -ms -md=31 -myx=9 -mtm=- -mmt -mmtf -md=1536m -mmf=bt3 -mmc=10000 -mpb=0 -mlc=0 "%bDir%\archive\qt-everywhere-%qt_version%-Windows_10-MSVC2019-x86.7z" "%bDir%\bin\%qt_version%"
 )
 
