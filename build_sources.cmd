@@ -14,6 +14,7 @@ dir "%bDir%\jom" || echo fail 3
 dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\" || echo fail 4
 dir "%bDir%\src\openssl" || echo fail 5
 dir "%bDir%\src" || echo fail 6
+dir "%bDir%" ||fail 7
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
     pushd "%bDir%\src\openssl"
     perl Configure shared no-asm --prefix=%bDir%\openssl-win64 VC-WIN64A
@@ -36,6 +37,7 @@ dir "%bDir%\jom" || echo fail 3
 dir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\" || echo fail 4
 dir "%bDir%\src\openssl" || echo fail 5
 dir "%bDir%\src" || echo fail 6
+dir "%bDir%" ||fail 7
     call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
     pushd "%bDir%\src\openssl"
     perl Configure shared no-asm --prefix="%bDir%\openssl-win32" VC-WIN32
