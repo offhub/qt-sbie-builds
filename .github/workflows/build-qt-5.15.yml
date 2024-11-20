@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  qt_version: 6.3.1
+  qt_version: 6.6.3
   openssl_version: 3.4.0
 
 jobs:
