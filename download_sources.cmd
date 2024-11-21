@@ -21,23 +21,6 @@ if "%EOL%" == "LF" (
     set "EOLconverter=unix2dos"
 )
 
-cd /d "C:\"
-dir "\Program Files (x86)\"
-dir "\Program Files (x86)\Microsoft Visual Studio\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2019\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\"
-
-dir "\Program Files (x86)\"
-dir "\Program Files (x86)\Microsoft Visual Studio\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2022\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\"
-dir "\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\"
-
 if exist "%bDir%\qt-everywhere-src-%qt_version%\configure.bat" goto done
 
 REM Downloading Qt 6.8 source code...
