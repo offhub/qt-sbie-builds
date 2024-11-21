@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
 
 env:
-  qt_version: 6.6.3
+  qt_version: 6.8.0
   openssl_version: 3.4.0
 
 jobs:
   Build_x64:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     steps:
       - name: Checkout code
@@ -52,7 +52,7 @@ jobs:
           compression-level: 9
 
   Build_x86:
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     steps:
       - name: Checkout code
