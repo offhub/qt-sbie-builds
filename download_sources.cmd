@@ -23,6 +23,8 @@ if "%EOL%" == "LF" (
 
 dir
 
+dir C:
+
 if exist "%bDir%\qt-everywhere-src-%qt_version%\configure.bat" goto done
 
 REM Downloading Qt 6.8 source code...
