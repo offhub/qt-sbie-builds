@@ -21,9 +21,21 @@ if "%EOL%" == "LF" (
     set "EOLconverter=unix2dos"
 )
 
-dir
+dir C:\Program Files (x86)\
+dir C:\Program Files (x86)\Microsoft Visual Studio\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2019\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\
 
-dir C:
+dir C:\Program Files (x86)\
+dir C:\Program Files (x86)\Microsoft Visual Studio\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2022\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\
+dir C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\
 
 if exist "%bDir%\qt-everywhere-src-%qt_version%\configure.bat" goto done
 
