@@ -15,6 +15,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
 
+      - name: Set up Visual Studio Developer Command Prompt
+        run: |
+          call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
+
       - name: Download Qt ${{ env.qt_version }} sources
         run: .\download_sources.cmd repack ${{ env.qt_version }} ${{ env.openssl_version }}
 
