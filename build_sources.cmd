@@ -13,11 +13,12 @@ dir "%bDir%\src\gnuwin32\bin" || echo fail 5
 dir "%bDir%\src\openssl" || echo fail 6
 dir "%bDir%\src\qtbase\bin" || echo fail 7
 dir "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\" || echo fail 8
+dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\" || echo fail 9
 
 if "%1" == "x64" (
     set "build_arch=x64"
     set "PATH=%bDir%\src\qtbase\bin;%bDir%\src\gnuwin32\bin;%bDir%\jom;%PATH%"
-    call "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+    call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
     pushd "%bDir%\src\openssl"
     perl Configure shared no-asm --prefix=%bDir%\openssl-win64 VC-WIN64A
     nmake
@@ -35,7 +36,7 @@ if "%1" == "x64" (
 if "%1" == "Win32" (
     set "build_arch=x86"
     set "PATH=%bDir%\src\qtbase\bin;%bDir%\src\gnuwin32\bin;%bDir%\jom;%PATH%"
-    call "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
+    call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
     pushd "%bDir%\src\openssl"
     perl Configure shared no-asm --prefix="%bDir%\openssl-win32" VC-WIN32
     nmake
@@ -58,3 +59,4 @@ dir "%bDir%\src\gnuwin32\bin" || echo fail 5
 dir "%bDir%\src\openssl" || echo fail 6
 dir "%bDir%\src\qtbase\bin" || echo fail 7
 dir "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\" || echo fail 8
+dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\" || echo fail 9
