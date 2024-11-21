@@ -15,9 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
 
-      - name: Enable Developer Command Prompt
-        uses: ilammy/msvc-dev-cmd@v1.13.0            
-
       - name: Download Qt ${{ env.qt_version }} sources
         run: .\download_sources.cmd repack ${{ env.qt_version }} ${{ env.openssl_version }}
 
