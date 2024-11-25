@@ -1,6 +1,6 @@
 @echo on
 echo %*
-set "qt_version=%2"
+set "qt_version=%~2"
 if "%qt_version:~4,1%" == "." (
     set "qt_version_nomin=%qt_version:~0,4%"
 ) else (
