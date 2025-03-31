@@ -57,6 +57,9 @@ curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2024-39936-qtbas
 curl -LsSO --output-dir "%bDir%\src\qtconnectivity" "%qt_patch_url%/CVE-2025-23050-qtconnectivity-5.15.diff"
 :verMin19
 
+:verMinAll
+curl -LsSO --output-dir "%bDir%\src\qtbase" "%qt_patch_url%/CVE-2025-30348-qtbase-5.15.diff"
+
 
 REM Install GNU Patch tool (from Chocolatey)...
 choco install patch -y
@@ -79,7 +82,7 @@ for %%i in (%qtsvg_patches%) do (
 popd
 
 pushd "%bDir%\src\qtbase"
-set qtbase_patches="CVE-2023-32762-qtbase-5.15.diff" "CVE-2023-33285-qtbase-5.15.diff" "CVE-2023-32763-qtbase-5.15.diff" "CVE-2023-34410-qtbase-5.15.diff" "CVE-2023-37369-qtbase-5.15.diff" "CVE-2023-38197-qtbase-5.15.diff" "CVE-2023-43114-5.15.patch" "0001-CVE-2023-51714-qtbase-5.15.diff" "0002-CVE-2023-51714-qtbase-5.15.diff" "CVE-2024-25580-qtbase-5.15.diff" "CVE-2024-39936-qtbase-5.15.patch"
+set qtbase_patches="CVE-2023-32762-qtbase-5.15.diff" "CVE-2023-33285-qtbase-5.15.diff" "CVE-2023-32763-qtbase-5.15.diff" "CVE-2023-34410-qtbase-5.15.diff" "CVE-2023-37369-qtbase-5.15.diff" "CVE-2023-38197-qtbase-5.15.diff" "CVE-2023-43114-5.15.patch" "0001-CVE-2023-51714-qtbase-5.15.diff" "0002-CVE-2023-51714-qtbase-5.15.diff" "CVE-2024-25580-qtbase-5.15.diff" "CVE-2024-39936-qtbase-5.15.patch" "CVE-2025-30348-qtbase-5.15.diff"
 for %%i in (%qtbase_patches%) do (
     if exist "%%i" (
         echo Applying patch "%%i"
