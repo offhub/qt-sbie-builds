@@ -44,7 +44,7 @@ jobs:
       - name: Upload built OpenSSL ${{ env.openssl_version }}
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: OpenSSL ${{ env.qt_version }} x64
+          name: OpenSSL ${{ env.openssl_version }} x64
           path: |
             openssl-win64/bin/*.dll
             openssl-win64/bin/*.exe
@@ -78,7 +78,7 @@ jobs:
       - name: Upload built OpenSSL ${{ env.openssl_version }}
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: OpenSSL ${{ env.qt_version }} x86
+          name: OpenSSL ${{ env.openssl_version }} x86
           path: |
             openssl-win32/bin/*.dll
             openssl-win32/bin/*.exe
